@@ -1,0 +1,140 @@
+<div class="p-3">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-loggedout-users"
+                type="button" role="tab" aria-controls="nav-loggedout-users" aria-selected="true">LoggedOut
+                Users</button>
+            <button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-loggedin-users"
+                type="button" role="tab" aria-controls="nav-loggedin-users" aria-selected="true">LoggedIn
+                Users</button>
+            <button class="nav-link" id="nav-unverified-tab" data-bs-toggle="tab" data-bs-target="#nav-unverified"
+                type="button" role="tab" aria-controls="nav-unverified" aria-selected="false">Unverified Users</button>
+
+            <button class="nav-link" id="nav-verified-tab" data-bs-toggle="tab" data-bs-target="#nav-verified"
+                type="button" role="tab" aria-controls="nav-verified" aria-selected="false">Verified Users</button>
+
+            <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab" data-bs-target="#nav-disabled"
+                type="button" role="tab" aria-controls="nav-disabled" aria-selected="false">Disabled Users</button>
+
+            <button class="nav-link" id="nav-enabled-tab" data-bs-toggle="tab" data-bs-target="#nav-enabled"
+                type="button" role="tab" aria-controls="nav-enabled" aria-selected="false">Enabled Users</button>
+        </div>
+    </nav>
+
+    <div class="tab-content p-3" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-loggedout-users" role="tabpanel" aria-labelledby="nav-home-tab">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">Login Time</th>
+                        <th scope="col">Logout Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let users of loggedOutUsers">
+                        <td>{{users.username}}</td>
+                        <th scope="row">{{users.login}}</th>
+                        <td>{{users.logout}}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade show" id="nav-loggedin-users" role="tabpanel" aria-labelledby="nav-home-tab">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">Login Time</th>
+                        <th scope="col">Logout Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let users of loggedInUsers">
+                        <td>{{users.username}}</td>
+                        <th scope="row">{{users.login}}</th>
+                        <td>{{users.logout}}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="nav-unverified" role="tabpanel" aria-labelledby="nav-unverified-tab">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">Created On</th>
+                        <th scope="col">Modified On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let users of unverifiedUsers">
+                        <th scope="row">{{users.username}}</th>
+                        <td>{{users.user_created_on}}</td>
+                        <td>{{users.user_modified_on}}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="nav-verified" role="tabpanel" aria-labelledby="nav-verified-tab">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">Created On</th>
+                        <th scope="col">Modified On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let users of verifiedUsers">
+                        <th scope="row">{{users.username}}</th>
+                        <td>{{users.user_created_on}}</td>
+                        <td>{{users.user_modified_on}}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">Created On</th>
+                        <th scope="col">Modified On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let users of disabledUsers">
+                        <th scope="row">{{users.username}}</th>
+                        <td>{{users.user_created_on}}</td>
+                        <td>{{users.user_modified_on}}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="nav-enabled" role="tabpanel" aria-labelledby="nav-enabled-tab">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">Created On</th>
+                        <th scope="col">Modified On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let users of enabledUsers">
+                        <th scope="row">{{users.username}}</th>
+                        <td>{{users.user_created_on}}</td>
+                        <td>{{users.user_modified_on}}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

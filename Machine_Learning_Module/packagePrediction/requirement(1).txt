@@ -1,0 +1,4 @@
+datetime
+firebase_admin
+google-cloud-storage
+flask_cors

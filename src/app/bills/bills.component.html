@@ -1,0 +1,19 @@
+<div class="row justify-content-center my-5">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header">
+                <h2><b>Bill</b></h2>
+            </div>
+            <div class="card-body">
+                <div *ngFor="let item of generatedBills">
+                    <b>Date : {{item[0]}}</b><br>
+                    <div *ngFor="let item1 of item[1]">
+                        <b *ngIf="item1.food_total > 0">Food Total: {{item1.food_total}}</b>
+                        <b *ngIf="item1.room_total > 0">Room Total: {{item1.room_total}}</b>
+                    </div>
+                    <p>------------------------------------------------</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

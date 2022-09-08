@@ -1,0 +1,41 @@
+<div class="row justify-content-center my-5">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col mb-2">
+                        <label for="service" class="form-label">Choose a service : </label>&nbsp;&nbsp;
+                        <select name="service" id="service" [(ngModel)]="service">
+                            <option value="Hotel">
+                                Hotel
+                            </option>
+                            <option value="Tour">
+                                Tour
+                            </option>
+                            <option value="Customer">
+                                Customer
+                            </option>
+                            <option value="Kitchen">
+                                Kitchen
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-2">
+                        <label for="feedback" class="form-label">Enter Feedback</label>
+                        <input type="text" id="feedback" name="feedback" [(ngModel)]="feedback"
+                            class="form-control form-control-sm">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-grid mb-2">
+                        <button type="button" (click)="sendFeedback(service,feedback)" class="btn btn-sm btn-success">
+                            Add feedback
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

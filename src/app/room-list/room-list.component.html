@@ -1,0 +1,29 @@
+<div class="row justify-content-center my-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">RoomNo</th>
+                            <th scope="col">Occupied</th>
+                            <th scope="col">No of Beds</th>
+                            <th scope="col">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let room of rooms.Items">
+                            <td>{{room.room_no.N}}</td>
+                            <td>{{room.occupied.BOOL}}</td>
+                            <th scope="row">{{room.no_of_beds.N}}</th>
+                            <td> <button type="button" (click)="bookRoom(room.room_no.N)" class="btn btn-sm btn-info"
+                                    *ngIf="!room.occupied.BOOL">
+                                    Book Room
+                                </button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

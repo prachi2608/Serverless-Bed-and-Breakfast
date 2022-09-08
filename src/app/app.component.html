@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-light" style="
+background-color: #4b9ace !important;
+color: white !important;
+">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><b>Bed To Breakfast</b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbarContent" class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/signUp" routerLinkActive="active" *ngIf="!isAuthenticated">Sign up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/signIn" routerLinkActive="active" *ngIf="!isAuthenticated">Sign in</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/chat-bot-unregistered" routerLinkActive="active"
+            *ngIf="!isAuthenticated">Chat Bot</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active" *ngIf="isAuthenticated">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/chat-bot" routerLinkActive="active" *ngIf="isAuthenticated">Chat Bot</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/order-food" routerLinkActive="active" *ngIf="isAuthenticated">Order Food</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tour" routerLinkActive="active" *ngIf="isAuthenticated">Book Tour</a>
+        </li>
+        <li class="nav-item" *ngIf="useremail=='abnb5994@gmail.com'">
+          <a class="nav-link" routerLink="/statistics" routerLinkActive="active" *ngIf="isAuthenticated">Statistics</a>
+        </li>
+        <li class="nav-item" *ngIf="useremail=='abnb5994@gmail.com'">
+          <a class="nav-link" routerLink="/reports" routerLinkActive="active" *ngIf="isAuthenticated">Reports</a>
+        </li>
+        <li class="nav-item" *ngIf="useremail=='abnb5994@gmail.com'">
+          <a class="nav-link" routerLink="/kitchenInventory" routerLinkActive="active" *ngIf="isAuthenticated">Kitchen
+            Inventory</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/room-list" routerLinkActive="active" *ngIf="isAuthenticated">Room List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/bill" routerLinkActive="active" *ngIf="isAuthenticated">Billing and
+            Invoices</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/feedback" routerLinkActive="active" *ngIf="isAuthenticated">Feedback</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="" (click)="signOut()" *ngIf="isAuthenticated">Sign out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+<app-toast-global></app-toast-global>

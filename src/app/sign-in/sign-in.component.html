@@ -1,0 +1,57 @@
+<div class="row justify-content-center my-5">
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <div *ngIf="loginStage1">
+          <div class="row">
+            <div class="col mb-2">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" id="email" name="email" #email="ngModel" [(ngModel)]="user.email"
+                class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-2">
+              <label for="password" class="form-label">Password:</label>
+              <div class="input-group input-group-sm">
+                <input [type]="user.showPassword ? 'text' : 'password'" id="password" name="password"
+                  #password="ngModel" [(ngModel)]="user.password" class="form-control form-control-sm">
+                <button type="button" class="btn btn-outline-secondary"
+                  (click)="user.showPassword = !user.showPassword">
+                  <i class="bi"
+                    [ngClass]="{'bi-eye-fill': !user.showPassword, 'bi-eye-slash-fill': user.showPassword}"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row" *ngIf="loginStage2">
+            <div class="col mb-2">
+              <label class="focus-label">{{securityQuestion}}<span class="required">*</span></label>
+              <input type="text" name="securityAnswer" id="securityAnswer" class="form-control floating"
+                [(ngModel)]="validationData.securityAnswer">
+            </div>
+          </div>
+          <div class="row" *ngIf="loginStage3">
+            <div class="col mb-2">
+              <label class="focus-label">Cipher Answer for {{validationData.cipherQuestion}}<span
+                  class="required">*</span></label>
+              <input type="text" name="cipheranswer" id="cipheranswer" class="form-control floating"
+                [(ngModel)]="validationData.cipherAnswer">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col d-grid">
+            <button type="button" (click)="signIn()" class="btn btn-sm btn-success">
+              <span *ngIf="loginStage1">Sign In</span>
+              <span *ngIf="loginStage2">Verify Answer</span>
+              <span *ngIf="loginStage3">Verify Cipher</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

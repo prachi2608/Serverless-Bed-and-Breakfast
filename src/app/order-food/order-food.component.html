@@ -1,0 +1,63 @@
+<div class="row justify-content-center my-5">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col mb-2">
+                        <label for="foodItems" class="form-label">Choose an item</label>&nbsp;&nbsp;
+                        <select name="foodItems" id="foodItems" [(ngModel)]="foodItem">
+                            <option *ngFor="let item of menuItems" [value]="item.name" >
+                                {{item.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-2">
+                        <label for="quantity" class="form-label">Enter Quantity</label>
+                        <input type="number" id="quantity" name="quantity" [(ngModel)]="quantity"
+                            class="form-control form-control-sm">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-grid mb-2">
+                        <button type="button" (click)="addFoodItemInOrder(foodItem,quantity)"
+                            class="btn btn-sm btn-success" [disabled]="loading">
+                            Add Item
+                        </button>
+                    </div>
+                </div>
+                <div *ngIf="foodItems.length>0">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Food Item</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of foodItems">
+                                <td>{{item.foodItem}}</td>
+                                <td>{{item.quantity}}</td>
+                                <td>
+                                    <button type="button" (click)="removeItem(item.foodItem)"
+                                        class="btn btn-sm btn-danger">
+                                        Remove Item
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row" *ngIf="foodItems.length>0">
+                    <div class="col d-grid">
+                        <button type="button" (click)="orderFood()" class="btn btn-sm btn-success" [disabled]="loading">
+                            Order Food
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

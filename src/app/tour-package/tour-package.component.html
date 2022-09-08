@@ -1,0 +1,70 @@
+<div class="row justify-content-center my-5">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <div *ngIf="!showPackage">
+                    <div class="row">
+                        <div class="col mb-2">
+                            <label for="adults" class="form-label">Adults:</label>
+                            <input type="number" id="adults" name="adults" [(ngModel)]="adults"
+                                class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-2">
+                            <label for="child" class="form-label">Children:</label>
+                            <input type="number" id="child" name="child" [(ngModel)]="child"
+                                class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-2">
+                            <label for="stayDuration" class="form-label">Stay Duration:</label>
+                            <input type="number" id="stayDuration" name="stayDuration" [(ngModel)]="stayDuration"
+                                class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-grid">
+                            <button type="button" class="btn btn-sm btn-success" (click)="checkTourPackage()">
+                                Check Tour Package
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="showPackage">
+                    <div class="row" *ngIf="generatedPackage.PackageName=='Package 1'">
+                        <img src="../../assets/package1.jpg">
+                    </div>
+                    <div class="row" *ngIf="generatedPackage.PackageName=='Package 2'">
+                        <img src="../../assets/package2.jpg">
+                    </div>
+                    <div class="row" *ngIf="generatedPackage.PackageName=='Package 3'">
+                        <img src="../../assets/package3.jpg">
+                    </div>
+                    <div class="row">
+                        <div class="col d-grid">
+                            <span><b>Package : </b>{{generatedPackage.PackageName}}</span>
+                            <span><b>Tour Details : </b>{{generatedPackage.Tour_Details}}</span>
+                            <span><b>Tour_Hours : </b>{{generatedPackage.Tour_Hours}}</span>
+                            <span><b>Tour_Price : </b>{{generatedPackage.Tour_Price}}</span>
+                            <span><b>tourName : </b>{{generatedPackage.tourName}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5 d-grid mr-2">
+                            <button type="button" class="btn btn-sm btn-success" (click)="bookTour()">
+                                Book Tour
+                            </button>
+                        </div>
+                        <div class="col-5 d-grid">
+                            <button type="button" class="btn btn-sm btn-success" (click)="backToPackageSelection()">
+                                Back to package selection
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
